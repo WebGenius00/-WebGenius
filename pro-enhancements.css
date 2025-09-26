@@ -1,0 +1,380 @@
+/* ================================================
+   WEB GENIUS HUB - AMÉLIORATIONS PROFESSIONNELLES
+   Style créateur de contenu moderne
+   ================================================ */
+
+/* Effet de particules flottantes animées */
+.floating-particles {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+    overflow: hidden;
+}
+
+.particle {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: var(--primary-color);
+    border-radius: 50%;
+    opacity: 0;
+    animation: float-particle 12s infinite linear;
+}
+
+@keyframes float-particle {
+    0% {
+        transform: translateY(100vh) translateX(-50px) rotate(0deg);
+        opacity: 0;
+        scale: 0.5;
+    }
+    15% {
+        opacity: 0.8;
+        scale: 1;
+    }
+    85% {
+        opacity: 0.8;
+        scale: 1;
+    }
+    100% {
+        transform: translateY(-100px) translateX(50px) rotate(360deg);
+        opacity: 0;
+        scale: 0.3;
+    }
+}
+
+/* Particules avec délais différents */
+.particle:nth-child(1) { left: 10%; animation-delay: 0s; }
+.particle:nth-child(2) { left: 20%; animation-delay: 1.5s; }
+.particle:nth-child(3) { left: 30%; animation-delay: 3s; }
+.particle:nth-child(4) { left: 40%; animation-delay: 4.5s; }
+.particle:nth-child(5) { left: 50%; animation-delay: 6s; }
+.particle:nth-child(6) { left: 60%; animation-delay: 7.5s; }
+.particle:nth-child(7) { left: 70%; animation-delay: 9s; }
+.particle:nth-child(8) { left: 80%; animation-delay: 10.5s; }
+.particle:nth-child(9) { left: 90%; animation-delay: 2s; }
+
+/* Amélioration de l'avatar avec effets avancés */
+.avatar {
+    position: relative;
+    box-shadow: 
+        0 0 0 4px var(--primary-color),
+        0 20px 40px rgba(99, 102, 241, 0.4),
+        0 0 80px rgba(99, 102, 241, 0.2);
+    filter: brightness(1.1) contrast(1.1) saturate(1.2);
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: avatar-pulse 4s ease-in-out infinite;
+}
+
+.avatar:hover {
+    transform: scale(1.1) rotateZ(3deg);
+    box-shadow: 
+        0 0 0 6px var(--primary-light),
+        0 30px 60px rgba(99, 102, 241, 0.5),
+        0 0 120px rgba(99, 102, 241, 0.3);
+    filter: brightness(1.2) contrast(1.2) saturate(1.3);
+}
+
+@keyframes avatar-pulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 0 4px var(--primary-color),
+            0 20px 40px rgba(99, 102, 241, 0.4),
+            0 0 80px rgba(99, 102, 241, 0.2);
+    }
+    50% {
+        box-shadow: 
+            0 0 0 6px var(--primary-light),
+            0 25px 50px rgba(99, 102, 241, 0.5),
+            0 0 100px rgba(99, 102, 241, 0.25);
+    }
+}
+
+/* Masque de brillance professionnel sur l'avatar */
+.avatar::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.3) 0%,
+        rgba(255, 255, 255, 0.1) 30%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.1) 70%,
+        rgba(0, 0, 0, 0.2) 100%
+    );
+    pointer-events: none;
+    opacity: 0.8;
+    transition: all 0.3s ease;
+}
+
+.avatar:hover::after {
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.4) 0%,
+        rgba(255, 255, 255, 0.2) 30%,
+        transparent 50%,
+        rgba(0, 0, 0, 0.05) 70%,
+        rgba(0, 0, 0, 0.1) 100%
+    );
+}
+
+/* Effet néon animé sur le nom */
+.name {
+    text-shadow: 
+        0 0 5px var(--primary-color),
+        0 0 10px var(--primary-color),
+        0 0 20px var(--primary-color),
+        0 0 40px var(--primary-color);
+    animation: neon-glow 3s ease-in-out infinite alternate;
+    position: relative;
+}
+
+@keyframes neon-glow {
+    from {
+        text-shadow: 
+            0 0 5px var(--primary-color),
+            0 0 10px var(--primary-color),
+            0 0 20px var(--primary-color);
+    }
+    to {
+        text-shadow: 
+            0 0 10px var(--primary-color),
+            0 0 20px var(--primary-color),
+            0 0 30px var(--primary-color),
+            0 0 50px var(--primary-color);
+    }
+}
+
+/* Animation de typing sur la tagline */
+.tagline {
+    overflow: hidden;
+    border-right: 3px solid var(--primary-color);
+    white-space: nowrap;
+    margin: 0 auto;
+    letter-spacing: 0.1em;
+    animation: 
+        typing 3.5s steps(40, end) 1s 1 normal both,
+        blink-caret 1s step-end infinite 1s;
+}
+
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+
+@keyframes blink-caret {
+    from, to { border-color: transparent; }
+    50% { border-color: var(--primary-color); }
+}
+
+/* Amélioration glassmorphism des boutons sociaux */
+.social-link {
+    backdrop-filter: blur(20px);
+    background: rgba(22, 33, 62, 0.85);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.social-link::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        transparent 0%, 
+        rgba(255, 255, 255, 0.2) 50%, 
+        transparent 100%
+    );
+    transition: left 0.6s ease;
+}
+
+.social-link:hover::before {
+    left: 100%;
+}
+
+.social-link:hover {
+    background: rgba(22, 33, 62, 0.95);
+    border-color: rgba(255, 255, 255, 0.3);
+    transform: translateY(-6px);
+    box-shadow: 
+        0 15px 35px rgba(0, 0, 0, 0.3),
+        0 5px 15px rgba(99, 102, 241, 0.2);
+}
+
+/* Gradient de fond animé */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        radial-gradient(circle at 25% 25%, rgba(99, 102, 241, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 75% 75%, rgba(139, 92, 246, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 50% 10%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+    animation: gradient-drift 15s ease-in-out infinite;
+    pointer-events: none;
+    z-index: 0;
+}
+
+@keyframes gradient-drift {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1) rotate(0deg);
+    }
+    33% {
+        opacity: 0.8;
+        transform: scale(1.1) rotate(120deg);
+    }
+    66% {
+        opacity: 0.6;
+        transform: scale(0.9) rotate(240deg);
+    }
+}
+
+/* Amélioration du header avec animation d'apparition */
+.header {
+    animation: fade-in-down 1s ease-out 0.5s both;
+}
+
+@keyframes fade-in-down {
+    from {
+        opacity: 0;
+        transform: translateY(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation décalée des liens sociaux */
+.social-link {
+    animation: fade-in-up 0.8s ease-out both;
+}
+
+.social-link:nth-child(1) { animation-delay: 0.8s; }
+.social-link:nth-child(2) { animation-delay: 1s; }
+.social-link:nth-child(3) { animation-delay: 1.2s; }
+.social-link:nth-child(4) { animation-delay: 1.4s; }
+.social-link:nth-child(5) { animation-delay: 1.6s; }
+.social-link:nth-child(6) { animation-delay: 1.8s; }
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Amélioration mobile spécifique */
+@media (max-width: 768px) {
+    .name {
+        font-size: 2.2rem;
+        text-shadow: 
+            0 0 5px var(--primary-color),
+            0 0 15px var(--primary-color);
+    }
+    
+    .avatar {
+        width: 110px;
+        height: 110px;
+        box-shadow: 
+            0 0 0 3px var(--primary-color),
+            0 15px 30px rgba(99, 102, 241, 0.3);
+    }
+    
+    .tagline {
+        font-size: 1rem;
+        animation: typing 2.5s steps(30, end) 1s 1 normal both;
+    }
+    
+    .particle {
+        width: 2px;
+        height: 2px;
+    }
+}
+
+@media (max-width: 480px) {
+    .name {
+        font-size: 1.9rem;
+    }
+    
+    .avatar {
+        width: 100px;
+        height: 100px;
+    }
+    
+    .social-link {
+        padding: 1rem;
+        backdrop-filter: blur(15px);
+    }
+}
+
+/* Effet de survol amélioré pour les icônes sociales */
+.social-link i:first-child {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.social-link:hover i:first-child {
+    transform: scale(1.2) rotate(5deg);
+    filter: drop-shadow(0 0 8px currentColor);
+}
+
+/* Animation de la flèche de lien */
+.link-arrow {
+    transition: all 0.3s ease;
+    opacity: 0.7;
+}
+
+.social-link:hover .link-arrow {
+    opacity: 1;
+    transform: translateX(8px) scale(1.2);
+}
+
+/* Amélioration du footer */
+.footer {
+    animation: fade-in-up 1s ease-out 2s both;
+}
+
+/* Curseur personnalisé sur les éléments interactifs */
+.social-link, .avatar {
+    cursor: pointer;
+}
+
+.social-link:hover, .avatar:hover {
+    cursor: pointer;
+}
+
+/* Effet de focus pour l'accessibilité */
+.social-link:focus {
+    outline: 3px solid var(--primary-color);
+    outline-offset: 4px;
+    border-color: var(--primary-light);
+}
+
+/* Animation de la description */
+.description {
+    animation: fade-in 1s ease-out 2s both;
+    opacity: 0;
+}
+
+@keyframes fade-in {
+    to {
+        opacity: 1;
+    }
+}
